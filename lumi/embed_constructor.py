@@ -11,7 +11,7 @@ def embed_constructor(title, description='', color=None, thumbnail=None, footer=
         else:
             embed.colour = color
     else:
-        embed.colour = Colour.random()
+        embed.colour = int('2F3136', 16)
     if thumbnail:
         embed.set_thumbnail(thumbnail)
     if footer:
