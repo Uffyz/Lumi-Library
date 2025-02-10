@@ -29,7 +29,9 @@ gifs = {
         "myth": "https://i.ibb.co/984yLTX/3mythgif.gif"
     },
     "leaders": "https://i.ibb.co/2kf5jgQ/leaders.gif",
-    "harakt": "https://i.ibb.co/c30T0qh/harakt.gif"
+    "harakt": "https://i.ibb.co/c30T0qh/harakt.gif",
+    "main_ticket": "https://i.ibb.co/s9NxZQ0y/110-20241202201525.png",
+    "new_ticket": "https://i.ibb.co/7Jdx9wHV/111-20241202203224.png",
 }
 
 with open(f"{path}причуды.txt", "r", encoding="utf-8") as f:
