@@ -1,11 +1,13 @@
 import json
 import configparser
+import os
 # init
 config = configparser.ConfigParser()
 config.read("config.cfg", encoding="utf-8")
 token = config["Settings"]["token"]
 settings = config["Settings"]
-path = ".sources/"
+lib_directory = os.path.dirname(os.path.abspath(__file__))
+path = os.path.join(lib_directory, 'sources', '')
 # static
 guilds_ids = [1119281693262622720, 1260266165880623162]
 spisok_options = ['id_персонажа', 'раса', 'титул', 'цитата', 'возраст', 'должность', 'сила', 'ловкость', 'реакция', 'восприятие', 'выносливость',
