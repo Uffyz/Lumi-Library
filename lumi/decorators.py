@@ -1,6 +1,6 @@
 import functools
 import disnake
-from .values import guilds_ids
+from .var import guilds_ids
 from .embed_constructor import embed_constructor
 from .error import error
 

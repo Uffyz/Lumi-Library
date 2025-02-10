@@ -6,5 +6,4 @@ from .error import error
 from .logging import log
 from .modal import *
 from .scroll_top import scrolltop
-from .scrolling import scrolling
-from .values import *
+from .var import *

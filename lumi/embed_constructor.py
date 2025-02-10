@@ -1,4 +1,4 @@
-from disnake import Embed,  Colour
+from disnake import Embed, Colour
 
 def embed_constructor(title, description='', color=None, thumbnail=None, footer=None, image=None) -> Embed:
     embed = Embed(

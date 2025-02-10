@@ -1,5 +1,5 @@
 import disnake
-from .values import gifs
+from .var import gifs
 from .emoji import obshiexarki_emoji
 from .DB import *
 db = DBCommands()
