@@ -13,4 +13,4 @@ async def error(inter, text):
         text = ErrorMessage.values[text]
     errortext = embed_constructor(title='Произошла ошибка', description=text, color='ff0000')
     errortext.set_footer(text=datetime.now().strftime("%d.%m.%Y %H:%M"))
-    return await inter.send(embed=errortext)
+    return await inter.send(embed=errortext, ephemeral=True)
