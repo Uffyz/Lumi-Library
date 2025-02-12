@@ -1,10 +1,11 @@
 from disnake import Embed, Colour
 
-def embed_constructor(title, description='', color=None, thumbnail=None, footer=None, image=None) -> Embed:
-    embed = Embed(
-        title=title,
-        description=description
-    )
+def embed_constructor(title='', description='', color=None, thumbnail=None, footer=None, image=None) -> Embed:
+    embed = Embed()
+    if title:
+        embed.title = title
+    if description:
+        embed.description = description
     if color:
         if isinstance(color, str):
             embed.colour = int(color, 16)
