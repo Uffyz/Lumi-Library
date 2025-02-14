@@ -21,7 +21,14 @@ def has_perm(admin=None, analyst=None):
                 embed.description += '**Эта команда доступна только на нашем [официальном сервере](https://discord.gg/sJhvsyQETu)\n\nЗдесь вы можете погрузиться в увлекательный мир RP, создать уникального персонажа, взаимодействовать с другими участниками и развивать свою историю. У нас дружелюбное сообщество, интересные события и захватывающие игровые сценарии.\n\nПрисоединяйтесь и станьте частью этого приключения!**'
                 return await inter.response.send_message(embed=embed)
             if analyst or admin:
-                if any(role.id == adm_role if admin else analyst_role for role in inter.author.roles) or inter.author.guild_permissions.administrator:
+                has_access = False
+                if admin:
+                    if adm_role in inter.author.roles:
+                        has_access = True
+                elif analyst:
+                    if analyst_role in inter.author.roles:
+                        has_access = True
+                if has_access:
                     if self:
                         return await func(self, inter, *args, **kwargs)
                     return await func(inter, *args, **kwargs)
