@@ -36,8 +36,12 @@ def has_perm(admin=None, analyst=None):
                     if inter.data.name.lower() in logscmd:
                         await log(inter)
                     if self:
-                        return await func(self, inter, *args, **kwargs)
-                    return await func(inter, *args, **kwargs)
+                        response = await func(self, inter, *args, **kwargs)
+                    else:
+                        response = await func(inter, *args, **kwargs)
+                    if inter.data.name.lower() in logscmd:
+                        await log(inter)
+                    return response
                 else:
                     if inter.data.name.lower() in logscmd:
                         await log(inter, 'perm')
