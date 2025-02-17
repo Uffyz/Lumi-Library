@@ -10,16 +10,18 @@ def new_embed(inter, etype):
                               description=
                               f'**Сервер** - {inter.guild.name}\n'
                               f'**Команда** - {inter.data.name}\n'
-                              f'**Выполнил** - {inter.author.mention} (id = {inter.author.id})\n',
+                              f'**Выполнил** - {inter.author.mention} (id = {inter.author.id})\n\n',
                               color=disnake.Colour.brand_green(),
                               footer=datetime.now().strftime('%d.%m.%Y %H:%M'))
     if etype == 'guild':
+        embed.title = 'Произошла ошибка'
         embed.description += '**Команда не была выполнена, так как доступна только на основном сервере**\n'
         embed.colour = int('ff0000', 16)
     elif etype == 'perm':
+        embed.title = 'Произошла ошибка'
         embed.description += '**Команда не была выполнена, так как у пользователя недостаточно прав**\n'
         embed.colour = int('ff0000', 16)
-    if inter.client.application_id != 1260266457405853779:
+    if inter.client.application_id == 1262877973539852319:
         embed.description += '**Команда была выполнена на тестовом боте**'
         embed.colour = int('00bfff', 16)
     return embed
