@@ -22,7 +22,7 @@ def new_embed(inter, etype):
         embed.description += '**Команда не была выполнена, так как у пользователя недостаточно прав**\n'
         embed.colour = int('ff0000', 16)
     if inter.client.application_id == 1262877973539852319:
-        embed.description += '**Команда была выполнена на тестовом боте**'
+        embed.description += '**Это тестовая среда. Команда выполнена без изменений в основном боте.**'
         embed.colour = int('00bfff', 16)
     return embed
 
