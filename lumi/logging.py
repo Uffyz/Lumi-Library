@@ -27,9 +27,9 @@ def new_embed(inter, etype):
 async def log(inter, etype='none'):
     log_chnl: TextChannel = inter.client.get_channel(1268559604116226051)
     embed = new_embed(inter, etype)
-    msg = await inter.original_response()
     view = None
-    if msg:
+    if inter.response.is_done():
+        msg = await inter.original_response()
         data = inter.data.options
         if data != []:
             embed.description += "\n\n**Аргументы**\n"
