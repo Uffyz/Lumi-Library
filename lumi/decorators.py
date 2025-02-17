@@ -3,6 +3,7 @@ import disnake
 from .var import guilds_ids
 from .embed_constructor import embed_constructor
 from .error import error
+from .logging import log
 
 
 def has_perm(admin=None, analyst=None):
@@ -29,6 +30,11 @@ def has_perm(admin=None, analyst=None):
                     if analyst_role in inter.author.roles:
                         has_access = True
                 if has_access or inter.author.guild_permissions.administrator:
+                    logscmd = ["выдать", "души", "контракты", "отобрать", "пополнить", "причуда", "char_delete",
+                               "char_give",
+                               "idchange"]
+                    if inter.data.name.lower() in logscmd:
+                        await log(inter)
                     if self:
                         return await func(self, inter, *args, **kwargs)
                     return await func(inter, *args, **kwargs)
