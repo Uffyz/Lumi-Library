@@ -30,7 +30,7 @@ async def log(inter, etype='none'):
     log_chnl: TextChannel = inter.client.get_channel(1268559604116226051)
     embed = new_embed(inter, etype)
     view = None
-    if inter.response.is_done():
+    if etype == 'none':
         msg = await inter.original_response()
         data = inter.data.options
         if data != []:
