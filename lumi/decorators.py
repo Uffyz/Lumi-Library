@@ -33,15 +33,13 @@ def has_perm(admin=None, analyst=None):
                     if analyst_role in inter.author.roles:
                         has_access = True
                 if has_access or inter.author.guild_permissions.administrator:
-                    if inter.data.name.lower() in logscmd:
-                        await log(inter)
                     if self:
-                        response = await func(self, inter, *args, **kwargs)
+                        result = await func(self, inter, *args, **kwargs)
                     else:
-                        response = await func(inter, *args, **kwargs)
+                        result = await func(inter, *args, **kwargs)
                     if inter.data.name.lower() in logscmd:
                         await log(inter)
-                    return response
+                    return result
                 else:
                     if inter.data.name.lower() in logscmd:
                         await log(inter, 'perm')
