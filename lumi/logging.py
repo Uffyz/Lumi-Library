@@ -32,7 +32,9 @@ async def log(inter, etype='none'):
     view = None
     if etype == 'none':
         msg = await inter.original_response()
+        print(msg.content)
         data = inter.data.options
+        print(data)
         if data != []:
             embed.description += "\n\n**Аргументы**\n"
             for i in data:
