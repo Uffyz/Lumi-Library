@@ -58,3 +58,10 @@ reactions_emoji = {
     '<:dark_purple:1333528583842299924>': 1333496088526590084
 }
 
+# ticket emoji
+htag_emoji = '<:htag:1341421767553716264>'
+success_emoji = '<:success:1341421765997363222>'
+closedby_emoji = '<:closedby:1341421764365914183>'
+opentime_emoji = '<:opentime:1341421762885193788>'
+claimedby_emoji = '<:claimedby:1341421761471844424>'
+reason_emoji = '<:reason:1341421759768825977>'
