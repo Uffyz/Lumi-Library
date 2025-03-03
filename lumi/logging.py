@@ -21,7 +21,7 @@ def new_embed(inter, etype):
         embed.title = 'Произошла ошибка'
         embed.description += '**Команда не была выполнена, так как у пользователя недостаточно прав**\n'
         embed.colour = int('ff0000', 16)
-    if inter.client.application_id == 1262877973539852319:
+    if inter.client.application_id == 1262877973539852319 or inter.client.application_id == 1338257277760835656:
         embed.description += '**Это тестовая среда. Команда выполнена без изменений в основном боте.**'
         embed.colour = int('00bfff', 16)
     return embed
