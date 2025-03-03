@@ -16,7 +16,8 @@ def has_perm(admin=None, analyst=None, rp_curator=None):
         async def wrapper(inter: disnake.ApplicationCommandInteraction, *args, **kwargs):
             self = kwargs.pop('self', None)
             guild = inter.bot.get_guild(guilds_ids[0])
-            logscmd = ["выдать", "души", "контракты", "отобрать", "пополнить", "причуда", "char_delete", "char_give", "idchange"]
+            logscmd = ["выдать", "души", "контракты", "отобрать", "пополнить", "причуда", "char_delete", "char_give", "idchange"
+                       'start', 'blacklist', 'claim', 'unclaim']
 
             if not inter.guild: # Если команда была выполнена не в гильдии
                 return None
