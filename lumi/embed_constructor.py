@@ -1,6 +1,6 @@
 from disnake import Embed, Colour
 
-import requests
+# import requests
 # a = requests.get('https://discord.com/api/v9/invites/lumirp?with_counts=true&with_expiration=true&with_permissions=true')
 # print(a.json()['guild']['icon'])
 
