@@ -34,7 +34,7 @@ async def log(inter, etype='none'):
         msg = await inter.original_response()
         data = inter.data.options
         if data != []:
-            embed.description += "\n\n**Аргументы**\n"
+            embed.description += "\n**Аргументы**\n"
             for i in data:
                 name = i.name.replace('_', '\\_')
                 embed.description += f"{name}: {i.value}\n"
