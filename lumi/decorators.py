@@ -14,6 +14,10 @@ def has_perm(admin=None, analyst=None, rp_curator=None):
 
         @functools.wraps(func)
         async def wrapper(inter: disnake.ApplicationCommandInteraction, *args, **kwargs):
+            anlyst_role = inter.guild.get_role(analyst_role)
+            admin_role = inter.guild.get_role(adm_role)
+            rp_role = inter.guild.get_role(rp_curator_role)
+
             self = kwargs.pop('self', None)
             guild = inter.bot.get_guild(guilds_ids[0])
             logscmd = ["выдать", "души", "контракты", "отобрать", "пополнить", "причуда", "char_delete", "char_give", "idchange"
@@ -32,13 +36,13 @@ def has_perm(admin=None, analyst=None, rp_curator=None):
             if analyst or admin or rp_curator:
                 has_access = False
                 if admin:
-                    if adm_role in inter.author.roles:
+                    if admin_role in inter.author.roles:
                         has_access = True
                 elif analyst:
-                    if analyst_role in inter.author.roles:
+                    if anlyst_role in inter.author.roles:
                         has_access = True
                 elif rp_curator:
-                    if rp_curator_role in inter.author.roles:
+                    if rp_role in inter.author.roles:
                         has_access = True
                 if has_access or inter.author.guild_permissions.administrator:
                     if self:
