@@ -44,7 +44,7 @@ def has_perm(admin=None, analyst=None, rp_curator=None):
                 elif rp_curator:
                     if rp_role in inter.author.roles:
                         has_access = True
-                if has_access:
+                if has_access or inter.author.guild_permissions.administrator:
                     if self:
                         result = await func(self, inter, *args, **kwargs)
                     else:
