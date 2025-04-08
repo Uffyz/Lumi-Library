@@ -13,19 +13,17 @@ def has_perm(admin=None, analyst=None, rp_curator=None):
         rp_curator_role = 1312118685128855573 # rp curator
 
         @functools.wraps(func)
-        async def wrapper(inter: disnake.Interaction, *args, **kwargs):
+        async def wrapper(inter: disnake.ApplicationCommandInteraction, *args, **kwargs):
             self = kwargs.pop('self', None)
-
-            is_command = isinstance(inter, disnake.ApplicationCommandInteraction)
             guild = inter.bot.get_guild(guilds_ids[0])
-            logscmd = ["выдать", "души", "контракты", "отобрать", "пополнить", "причуда", "char_delete", "char_give", "idchange",
-                       'start', 'blacklist']
+            logscmd = ["выдать", "души", "контракты", "отобрать", "пополнить", "причуда", "char_delete", "char_give", "idchange"
+                       'start', 'blacklist', 'claim', 'unclaim']
 
             if not inter.guild: # Если команда была выполнена не в гильдии
                 return None
 
             if inter.guild.id not in guilds_ids: # Если команда была выполнена не в нужных гильдиях
-                if is_command and inter.data.name.lower() in logscmd: # Если команда находится в списке чувствительных
+                if inter.data.name.lower() in logscmd: # Если команда находится в списке чувствительных
                     await log(inter, 'guild')
                 embed = embed_constructor(title='Ошибка доступа', color='ffffff', image=guild.banner.url)
                 embed.description += '**Эта команда доступна только на нашем [официальном сервере](https://discord.gg/sJhvsyQETu)\n\nЗдесь вы можете погрузиться в увлекательный мир RP, создать уникального персонажа, взаимодействовать с другими участниками и развивать свою историю. У нас дружелюбное сообщество, интересные события и захватывающие игровые сценарии.\n\nПрисоединяйтесь и станьте частью этого приключения!**'
@@ -47,11 +45,11 @@ def has_perm(admin=None, analyst=None, rp_curator=None):
                         result = await func(self, inter, *args, **kwargs)
                     else:
                         result = await func(inter, *args, **kwargs)
-                    if is_command and inter.data.name.lower() in logscmd:
+                    if inter.data.name.lower() in logscmd:
                         await log(inter)
                     return result
                 else:
-                    if is_command and inter.data.name.lower() in logscmd:
+                    if inter.data.name.lower() in logscmd:
                         await log(inter, 'perm')
                     return await error(inter, "У вас нет прав для использования этой команды.")
             if self:
