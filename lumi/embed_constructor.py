@@ -9,7 +9,6 @@ def embed_constructor(title='', description='', color=None, thumbnail=None, foot
         title=title,
         description=description
     )
-    url = 'https://cdn.discordapp.com/icons/1119281693262622720/45c0d814dc80ef7d3afd6a16cbf2145b.webp?size=96'
     if color:
         if isinstance(color, str):
             embed.colour = int(color, 16)
@@ -20,9 +19,9 @@ def embed_constructor(title='', description='', color=None, thumbnail=None, foot
     if thumbnail:
         embed.set_thumbnail(thumbnail)
     if footer:
-        embed.set_footer(text=footer, icon_url=url)
+        embed.set_footer(text=footer)
     else:
-        embed.set_footer(text='[☁] 𝐋𝐮𝐦𝐢 𝐑𝐨𝐥𝐞 𝐏𝐥𝐚𝐲', icon_url=url)
+        embed.set_footer(text='[☁] 𝐋𝐮𝐦𝐢 𝐑𝐨𝐥𝐞 𝐏𝐥𝐚𝐲')
     if image:
         embed.set_image(image)
     return embed
